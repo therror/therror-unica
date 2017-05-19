@@ -1,15 +1,14 @@
 # therror-unica
 Unica Errors and toolbelt for creating them
 
-It's written in ES6, for node >= 4
-
-These Erros are [Therror.ServerError](https://github.com/therror/therror#server-error-classes) based, and hide implementation details and confidential information for the `5XX` automatically, and use default HTTP Error messages when no specific one is provided.
-
-
 [![npm version](https://badge.fury.io/js/therror-unica.svg)](http://badge.fury.io/js/therror-unica)
 [![Build Status](https://travis-ci.org/therror/therror-unica.svg)](https://travis-ci.org/therror/therror-unica)
 [![Coverage Status](https://coveralls.io/repos/therror/therror-unica/badge.svg?branch=master)](https://coveralls.io/r/therror/therror-unica?branch=master)
 ![Typescript definitions](https://img.shields.io/badge/TypeScript%20Definition-.d.ts-blue.svg)
+
+It's written in ES6, for node >= 4
+
+These Errors are based in [Therror.ServerError](https://github.com/therror/therror#server-error-classes), hide implementation details and confidential information for the `5XX` automatically, and use default HTTP Error messages when no specific one is provided.
 
 ## Installation 
 ```bash
@@ -77,7 +76,20 @@ err.toPayload();
 
 ### Tips
 
-**Create erros with a static kwnon message**
+**Create your custom error classes**
+```js
+class InvalidHeader extends UnicaError.InvalidArgument {}
+let err = new InvalidHeader('The header "X-Fwd-To" is invalid');
+err.toPayload();
+/*
+{
+  "code": "INVALID_ARGUMENT",
+  "message": "The header "X-Fwd-To" is not valid"
+}
+*/
+```
+
+**Create errors with a static kwnon message**
 ```js
 class InvalidHeader extends Therror.WithMessage('The header "${header}" is not valid', UnicaError.InvalidArgument) {}
 
