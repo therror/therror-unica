@@ -127,7 +127,7 @@ Therror.Loggable.logger = require('logops');  // but logops is a logger designed
 let interestingData = { ... };
 let err = new UnicaError.Internal(cause, 'Database error', { interestingData });
 err.log();
-// will log the cause, the original provided message and `interestingData`
+// will log the cause, the stacktrace, the original provided message and `interestingData`
 err.toPayload();
 /*
 {
