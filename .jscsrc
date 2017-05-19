@@ -1,0 +1,9 @@
+{
+    "preset": "google",
+    "maximumLineLength": 180,
+    "disallowSpacesInCallExpression": true,
+    "disallowMultipleVarDecl": null,
+    "requireSpacesInNamedFunctionExpression": {
+        "beforeOpeningCurlyBrace": true
+    }
+}

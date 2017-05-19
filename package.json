@@ -1,0 +1,56 @@
+{
+  "name": "therror-unica",
+  "description": "Create Telefonica UNICA Errors",
+  "version": "3.0.0",
+  "homepage": "https://therror.github.io/therror-unica",
+  "author": {
+    "name": "Javier Mendiara Cañardo",
+    "email": "javier.mendiaracanardo@telefonica.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/therror/therror-unica.git"
+  },
+  "bugs": {
+    "url": "https://github.com/therror/therror-unica/issues"
+  },
+  "main": "lib/index",
+  "typings": "lib/index.d.ts",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "travis": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/environment.js 'test/**/*.spec.js' && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage && tsc --noEmit",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R dot test/environment.js 'test/**/*.spec.js'",
+    "lint": "jscs lib && eslint lib && tslint './{lib,test}/**/*.ts'",
+    "test": "mocha -R spec test/environment.js 'test/**/*.spec.js' && npm run test:ts",
+    "test:ts": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.13",
+    "chai": "^3.0.0",
+    "coveralls": "^2.11.2",
+    "eslint": "^3.2.0",
+    "istanbul": "^0.4.2",
+    "jscs": "^3.0.3",
+    "mocha": "^2.2.5",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.8.0",
+    "therror": "^4.0.1",
+    "tslint": "^5.1.0",
+    "tslint-config-typings": "^0.3.1",
+    "typescript": "^2.3.0"
+  },
+  "keywords": [
+    "error",
+    "properties",
+    "customizable",
+    "extensible",
+    "i18n"
+  ],
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "therror": ">=4.0.1"
+  },
+  "dependencies": {}
+}
