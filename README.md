@@ -39,8 +39,8 @@ Unica Errors Correspondece table
 | --- | --- | --- |
 | 400 | INVALID_ARGUMENT | `UnicaError.InvalidArgument` |
 | 400 | FAILED_PRECONDITION | `UnicaError.FailedPrecondition` |
-| 400 | OUT_OF_RANGE | `UnicaError.InvalidArgument` |
-| 401 | UNAUTHENTICATED | `UnicaError.OutOfRange` |
+| 400 | OUT_OF_RANGE | `UnicaError.OutOfRange` |
+| 401 | UNAUTHENTICATED | `UnicaError.Unauthenticated` |
 | 403 | PERMISSION_DENIED | `UnicaError.PermissionDenied` |
 | 404 | NOT_FOUND | `UnicaError.NotFound` |
 | 409 | ABORTED | `UnicaError.Aborted` |
