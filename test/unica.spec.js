@@ -149,5 +149,28 @@ describe('UnicaError Errors', function() {
       expect(err.unicaCode).to.be.equals('TIMEOUT');
       expect(err.statusCode).to.be.equals(504);
     });
+
+    it('Erros with status format should have the status property in body', function(){
+      class Foo extends UnicaError('ERROR_CODE', UnicaError.InvalidArgument, true) {}
+
+      let err = new Foo();
+
+      expect(err.toPayload().status).to.be.eql(400);
+    });
+
+    it('Erros with no status format should not have the status property in body', function(){
+      class Foo extends UnicaError('ERROR_CODE', UnicaError.InvalidArgument, false) {}
+
+      let err = new Foo();
+
+      expect(err.toPayload().status).to.be.eql(undefined);
+
+      class Foo2 extends UnicaError('ERROR_CODE', UnicaError.InvalidArgument) {}
+
+      err = new Foo2();
+
+      expect(err.toPayload().status).to.be.eql(undefined);
+    });
+
   });
 });
