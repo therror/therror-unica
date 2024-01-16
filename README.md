@@ -137,6 +137,23 @@ err.toPayload();
 */
 ```
 
+**Customize your errors as much as you want**
+
+You can select options like: the error code, adding status to the body of your Error, etc.
+
+```js
+class InvalidUser extends UnicaError('INVALID_USER', UnicaError.InvalidArgument, true) {}
+let err = new InvalidUser("The user is not valid");
+err.toPayload();
+/*
+{
+  "code": "INVALID_USER",
+  "message": "The user is not valid",
+  "status": 400
+}
+*/
+```
+
 ## Peer Projects
 * [therror](https://github.com/therror/therror): The Error utility
 * [therror-connect](https://github.com/therror/therror-connect): Connect/Express error handler
